@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 using System.Net;
 using System.Net.Sockets;
 
-namespace ContainerAppV2
+namespace ConsoleApp6
 {
     public class Program
     {
@@ -29,7 +29,7 @@ namespace ContainerAppV2
             //string baseAddress = "http://" + localIP + ":5001/";
 
             // Running locally
-            string baseAddress = "http://localhost:9000/";
+            string baseAddress = "http://localhost:5000/";
             // Running with docker
             //string baseAddress = "http://*:9000/";
 
@@ -41,10 +41,10 @@ namespace ContainerAppV2
             {
                 // locally
                 // Create HttpCient and make a request to api/values 
-                // HttpClient client = new HttpClient();
-                // var response = client.GetAsync(baseAddress + "api/values").Result;
-                // Console.WriteLine(response);
-                // Console.WriteLine(response.Content.ReadAsStringAsync().Result);
+                 HttpClient client = new HttpClient();
+                 var response = client.GetAsync(baseAddress + "api/values").Result;
+                 Console.WriteLine(response);
+                 Console.WriteLine(response.Content.ReadAsStringAsync().Result);
 
                 // docker
                 // HttpClient client = new HttpClient();
@@ -60,6 +60,4 @@ namespace ContainerAppV2
             // Console.ReadLine();
         }
     }
-        
-    
 }
